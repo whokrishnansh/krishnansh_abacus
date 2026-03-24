@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Override Bootstrap card */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 24px;
+}
+
+.card-body {
+  padding: 2.5rem 3rem !important;
+}
+
+h2.text-center {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Target number */
+#targetNumber {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3.5rem;
+}
+
+/* Current value */
+#currentValue {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: #2d3748;
+  font-size: 2.5rem;
+}
+
+/* Abacus frame */
+.abacus-container {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.abacus-frame {
+  background: linear-gradient(145deg, #f0f4ff 0%, #e2e8f4 100%);
+  border-radius: 20px;
+  padding: 32px 36px 20px;
+  min-width: max-content;
+  box-shadow: inset 0 2px 8px rgba(102, 126, 234, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Grid layout for rods, base, controls */
+.rods-display,
+.abacus-base,
+.controls-row {
+  display: grid;
+  grid-template-columns: repeat(5, 72px);
+  gap: 24px;
+  justify-content: center;
+}
+
+/* Rod wrapper */
+.rod-wrapper {
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.rod {
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(180deg, #a0845c 0%, #7a6340 50%, #5c4a30 100%);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Beads */
+.beads-container {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 3px;
+  padding-bottom: 6px;
+}
+
+.bead {
+  width: 28px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  transition: transform 0.15s ease;
+}
+
+/* Abacus base */
+.abacus-base {
+  background: linear-gradient(180deg, #a0845c 0%, #7a6340 50%, #5c4a30 100%);
+  padding: 14px 24px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.base-label {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Controls */
+.controls-row {
+  margin-top: 14px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.control-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.control-btn:first-child {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  box-shadow: 0 3px 10px rgba(238, 90, 36, 0.3);
+}
+
+.control-btn:first-child:hover {
+  background: linear-gradient(135deg, #ff5252, #d63031);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(238, 90, 36, 0.4);
+}
+
+.control-btn:first-child:active {
+  transform: translateY(0);
+}
+
+.control-btn:last-child {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.control-btn:last-child:hover {
+  background: linear-gradient(135deg, #5a72d4, #6a4194);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(102, 126, 234, 0.4);
+}
+
+.control-btn:last-child:active {
+  transform: translateY(0);
+}
+
+/* Status message */
+#statusMessage {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+/* New Question button */
+#newQuestionBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 14px;
+  padding: 14px 40px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
+  transition: all 0.25s ease;
+}
+
+#newQuestionBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #5a72d4, #6a4194);
+}
+
+#newQuestionBtn:active {
+  transform: translateY(0);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1200px) {
+  .rod-wrapper {
+    height: 200px;
+  }
+
+  .bead {
+    width: 26px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .abacus-frame {
+    padding: 24px 28px 18px;
+  }
+
+  .rod-wrapper {
+    height: 180px;
+  }
+
+  .bead {
+    width: 24px;
+    height: 19px;
+  }
+
+  .base-label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    padding: 2rem !important;
+  }
+
+  .rods-display,
+  .abacus-base,
+  .controls-row {
+    gap: 16px;
+    grid-template-columns: repeat(5, 62px);
+  }
+
+  .rod-wrapper {
+    height: 160px;
+  }
+
+  .bead {
+    width: 22px;
+    height: 18px;
+  }
+
+  .control-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  #targetNumber {
+    font-size: 2.8rem;
+  }
+
+  #currentValue {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .abacus-frame {
+    padding: 18px 20px 14px;
+  }
+
+  .rods-display,
+  .abacus-base,
+  .controls-row {
+    grid-template-columns: repeat(5, 52px);
+    gap: 10px;
+  }
+
+  .rod-wrapper {
+    height: 135px;
+  }
+
+  .bead {
+    width: 18px;
+    height: 15px;
+  }
+
+  .base-label {
+    font-size: 12px;
+  }
+
+  .control-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+
+  #newQuestionBtn {
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 20px 0 24px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}

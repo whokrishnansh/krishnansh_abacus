@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abacus Number Matching Game</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="container">
+      <div class="card shadow-lg mx-auto" style="max-width: 900px;">
+        <div class="card-body p-5">
+          <h2 class="text-center mb-3" style="color: #4a3f8a;">
+            Match the Number on the Abacus
+          </h2>
+          <div class="text-center mb-4">
+            <h1 class="display-4 fw-bold" id="targetNumber">0</h1>
+          </div>
+          <div class="abacus-container mb-4">
+            <div class="abacus-frame">
+              <div class="rods-display" id="rodsDisplay"></div>
+              <div class="abacus-base">
+                <div class="base-label">T-Th</div>
+                <div class="base-label">Th</div>
+                <div class="base-label">H</div>
+                <div class="base-label">T</div>
+                <div class="base-label">O</div>
+              </div>
+
+              <div class="controls-row" id="controlsRow"></div>
+
+            </div>
+          </div>
+
+          <div class="text-center mb-3">
+            <h2 class="display-5" id="currentValue">0</h2>
+          </div>
+
+          <div class="text-center mb-4">
+            <p class="fs-5" id="statusMessage">
+              Adjust the beads to match the target number.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <button class="btn btn-success btn-lg px-5" id="newQuestionBtn">
+              New Question
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    Assignment by Krishnansh Sharma
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
