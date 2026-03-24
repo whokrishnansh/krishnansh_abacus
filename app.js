@@ -98,7 +98,7 @@ function updateDisplay() {
     statusMessage.style.color = "green";
     statusMessage.style.fontWeight = "bold";
   } else {
-    statusMessage.textContent = "Adjust the beads to match the target number.";
+    statusMessage.textContent = "Keep adjusting the beads.";
     statusMessage.style.color = "#333";
     statusMessage.style.fontWeight = "normal";
   }
