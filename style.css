@@ -5,6 +5,7 @@ body {
   font-family: 'Outfit', sans-serif;
   margin: 0;
   min-height: 100vh;
+  transition: background 0.4s ease;
 }
 
 /* Override Bootstrap card */
@@ -73,7 +74,7 @@ h2.text-center {
 
 /* Rod wrapper */
 .rod-wrapper {
-  height: 220px;
+  height: 280px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -218,7 +219,7 @@ h2.text-center {
 /* ---- Responsive ---- */
 @media (max-width: 1200px) {
   .rod-wrapper {
-    height: 200px;
+    height: 260px;
   }
 
   .bead {
@@ -233,7 +234,7 @@ h2.text-center {
   }
 
   .rod-wrapper {
-    height: 180px;
+    height: 240px;
   }
 
   .bead {
@@ -259,7 +260,7 @@ h2.text-center {
   }
 
   .rod-wrapper {
-    height: 160px;
+    height: 220px;
   }
 
   .bead {
@@ -299,7 +300,7 @@ h2.text-center {
   }
 
   .rod-wrapper {
-    height: 135px;
+    height: 195px;
   }
 
   .bead {
@@ -332,4 +333,130 @@ h2.text-center {
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.3px;
+}
+
+/* ---- Dark Mode Toggle ---- */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 28px;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch input:checked+.toggle-slider {
+  background: rgba(118, 75, 162, 0.6);
+}
+
+.toggle-switch input:checked+.toggle-slider::before {
+  transform: translateX(24px);
+}
+
+/* ---- Dark Mode Theme ---- */
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+body.dark-mode .card {
+  background: rgba(30, 30, 50, 0.95);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode h2.text-center {
+  color: #a78bfa !important;
+}
+
+body.dark-mode #targetNumber {
+  background: linear-gradient(135deg, #a78bfa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+body.dark-mode #currentValue {
+  color: #e2e8f0;
+}
+
+body.dark-mode .abacus-frame {
+  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
+  border-color: rgba(167, 139, 250, 0.15);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .abacus-base {
+  background: linear-gradient(180deg, #3d3054 0%, #2a2040 50%, #1e1530 100%);
+}
+
+body.dark-mode .rod {
+  background: linear-gradient(180deg, #5c4a7a 0%, #3d3060 50%, #2a2045 100%);
+}
+
+body.dark-mode #statusMessage {
+  color: #94a3b8 !important;
+}
+
+body.dark-mode #newQuestionBtn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
+}
+
+body.dark-mode #newQuestionBtn:hover {
+  background: linear-gradient(135deg, #6d28d9, #9333ea);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+body.dark-mode .app-footer {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+body.dark-mode .toggle-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .min-vh-100 {
+  background: transparent !important;
 }

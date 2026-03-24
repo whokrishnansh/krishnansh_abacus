@@ -107,5 +107,16 @@ function updateDisplay() {
 document.addEventListener("DOMContentLoaded", () => {
   generateNewQuestion();
   document.getElementById("newQuestionBtn").addEventListener("click", generateNewQuestion);
+
+  // Dark mode toggle
+  const toggle = document.getElementById("darkModeToggle");
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark-mode");
+    toggle.checked = true;
+  }
+  toggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", toggle.checked);
+  });
 });
 
