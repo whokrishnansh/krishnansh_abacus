@@ -344,6 +344,11 @@ h2.text-center {
   display: flex;
   align-items: center;
   gap: 10px;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 8px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
 }
 
 .toggle-label {
